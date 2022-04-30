@@ -1,0 +1,16 @@
+name: google-docs-to-markdown
+description: Custom action to export Google Docs to local file system as Markdown files.
+inputs:
+  google_drive_folder_id:
+    description: ID of the Google Drive folder to be exported.
+    required: true
+  output_directory_path:
+    description: Directory path to output files.
+    required: false
+    default: output
+runs:
+  using: node16
+  main: dist/index.js
+branding:
+  color: blue
+  icon: download-cloud
