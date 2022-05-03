@@ -75,7 +75,7 @@ function convertHtml(html) {
     element.removeAttribute("id");
   });
   bodyElement.querySelectorAll("p").forEach((element) => {
-    if (!element.text) {
+    if (element.innerHTML === "<span></span>") {
       element.remove();
     }
   });
