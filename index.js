@@ -87,9 +87,13 @@ function convertHtml(html) {
     if (!href) {
       return;
     }
-    const url = new URL(href);
-    const q = url.searchParams.get("q");
-    element.setAttribute("href", q);
+    try {
+      const url = new URL(href);
+      const q = url.searchParams.get("q");
+      element.setAttribute("href", q);
+    } catch {
+      // Ignore invalid URL in href (e.g. `"#cmnt_ref1"`).
+    }
   });
 
   const firstElement = bodyElement.querySelector("*");
